@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sndRedSpirit",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":4.448866,
+  "name":"sndRedSpirit",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndRedSpirit.wav",
+  "type":0,
+  "volume":1.0,
+}
