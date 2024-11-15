@@ -27,7 +27,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"Any Color You Like",
   "resources":[
@@ -76,6 +76,7 @@
     {"id":{"name":"sndGreenSpirit","path":"sounds/sndGreenSpirit/sndGreenSpirit.yy",},},
     {"id":{"name":"sndLevel1","path":"sounds/sndLevel1/sndLevel1.yy",},},
     {"id":{"name":"sndLevel2","path":"sounds/sndLevel2/sndLevel2.yy",},},
+    {"id":{"name":"sndLevel3","path":"sounds/sndLevel3/sndLevel3.yy",},},
     {"id":{"name":"sndRedSpirit","path":"sounds/sndRedSpirit/sndRedSpirit.yy",},},
     {"id":{"name":"sprBackground","path":"sprites/sprBackground/sprBackground.yy",},},
     {"id":{"name":"sprBlueSpirit","path":"sprites/sprBlueSpirit/sprBlueSpirit.yy",},},

@@ -39,6 +39,7 @@
     {"name":"sndGreenSpirit","order":11,"path":"sounds/sndGreenSpirit/sndGreenSpirit.yy",},
     {"name":"sndLevel1","order":12,"path":"sounds/sndLevel1/sndLevel1.yy",},
     {"name":"sndLevel2","order":13,"path":"sounds/sndLevel2/sndLevel2.yy",},
+    {"name":"sndLevel3","order":15,"path":"sounds/sndLevel3/sndLevel3.yy",},
     {"name":"sndRedSpirit","order":14,"path":"sounds/sndRedSpirit/sndRedSpirit.yy",},
     {"name":"sprClassic_1","order":2,"path":"sprites/sprClassic_1/sprClassic_1.yy",},
     {"name":"sprClassic","order":1,"path":"sprites/sprClassic/sprClassic.yy",},
