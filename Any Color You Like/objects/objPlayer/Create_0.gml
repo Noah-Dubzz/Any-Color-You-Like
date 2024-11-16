@@ -34,5 +34,8 @@ move_y = 0;
 previous_x = x;
 previous_y = y;
 
+camera_target_x = x;
+camera_target_y = y;
+camera_smooth_speed = 0.1; // Adjust for smoother or faster following
 
 

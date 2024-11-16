@@ -1,7 +1,7 @@
 // Mouse Left Pressed Event
 if (hovering) {
 	room_goto(rmLevel1);
-	global.lives = 100;
+	global.lives = 3;
 	// Makes sure the enemy stays within the room/maze boundaries
 	global.maze_left = 580;
 	global.maze_right = 1330;

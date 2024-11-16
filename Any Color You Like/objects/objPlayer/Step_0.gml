@@ -1,3 +1,15 @@
+// Target the player's position
+camera_target_x = lerp(camera_target_x, x, camera_smooth_speed);
+camera_target_y = lerp(camera_target_y, y, camera_smooth_speed);
+
+// Get the active camera
+var camera = view_camera[0];
+
+// Center the camera on the smoothed target
+var cam_width = camera_get_view_width(camera);
+var cam_height = camera_get_view_height(camera);
+camera_set_view_pos(camera, camera_target_x - cam_width / 2, camera_target_y - cam_height / 2);
+
 if(!audio_is_playing(sndLevel1)){
 	audio_play_sound(sndLevel1, 1, true);
 }

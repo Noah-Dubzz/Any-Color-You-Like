@@ -42,6 +42,26 @@ power_up_positions = [
 ];
 }
 
+if (room = rmLevel3){
+
+power_up_positions = [
+    [435, 250],
+    [1380, 250],
+    [1475, 845],
+    [545, 845],
+    [905, 335],
+	[1025, 335],
+	[860, 845],
+	[1175, 845],
+    [1660, 905],
+	[265, 905],
+	[1660, 195],
+	[265, 195],
+	[1270, 535],
+	[655, 535]
+];
+}
+
 // Function to generate a power-up at a random position from the predefined locations
 function generate_power_up(power_up_type) {
     var power_up_instance;

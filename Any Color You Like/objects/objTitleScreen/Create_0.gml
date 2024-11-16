@@ -1,4 +1,5 @@
 // Create Event of objTitleScreen
+
 // Set the scale factor
 scale_factorx = 11.555;
 scale_factory = 7.89;

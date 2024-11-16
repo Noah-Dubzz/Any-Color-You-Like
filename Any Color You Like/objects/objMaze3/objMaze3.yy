@@ -1,17 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"objDoor",
+  "%Name":"objMaze3",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objDoor",
+  "name":"objMaze3",
   "overriddenProperties":[],
   "parent":{
-    "name":"Maze Assets",
-    "path":"folders/Objects/Maze Assets.yy",
+    "name":"Mazes",
+    "path":"folders/Objects/Maze Assets/Mazes.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -32,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprDoor",
-    "path":"sprites/sprDoor/sprDoor.yy",
+    "name":"sprMaze3",
+    "path":"sprites/sprMaze3/sprMaze3.yy",
   },
   "spriteMaskId":null,
   "visible":true,
