@@ -10,12 +10,6 @@ if (hovering) {
 	global.mode = "Classic"; 
 	global.Score = 0;
 	audio_play_sound(sndDoor, 1, false);
-	if (global.Score < 30000){
-	audio_play_sound(sndLevel1, 100, true);
-	}
-	if (global.Score < 60000){
-	audio_play_sound(sndLevel1, 100, true);
-	}
 	audio_stop_sound(sndBackgroundMusic);
 	audio_stop_sound(sndDead);
 }

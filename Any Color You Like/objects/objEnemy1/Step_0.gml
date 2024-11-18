@@ -1,3 +1,7 @@
+if (global.mode = "TimeAttack"){
+	instance_destroy(self);
+}
+
 // Checks for player nearby
 var detection_range = 200; // Range that the enemy can see the player
 var player_visible = false;

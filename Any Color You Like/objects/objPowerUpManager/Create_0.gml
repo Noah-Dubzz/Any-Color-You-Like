@@ -90,5 +90,10 @@ function generate_power_up(power_up_type) {
 }
 
 // Generate either objSpeedPowerUp or objSlowPowerUp randomly
+if (global.mode = "Classic"){
 var random_power_up = choose(objSlowPowerUp, objSpeedPowerUp);
+}
+if (global.mode = "TimeAttack"){
+var random_power_up = choose(objSpeedPowerUp, objSpeedPowerUp);
+}
 var power_up_instance = generate_power_up(random_power_up);

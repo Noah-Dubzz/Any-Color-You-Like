@@ -1,6 +1,7 @@
 {
   "FolderOrderSettings":[],
   "ResourceOrderSettings":[
+    {"name":"font_bold_large","order":1,"path":"fonts/font_bold_large/font_bold_large.yy",},
     {"name":"objDoor","order":1,"path":"objects/objDoor/objDoor.yy",},
     {"name":"objEndlessMode","order":1,"path":"objects/objEndlessMode/objEndlessMode.yy",},
     {"name":"objEnemy1","order":2,"path":"objects/objEnemy1/objEnemy1.yy",},
@@ -51,6 +52,7 @@
     {"name":"sndLevel1","order":12,"path":"sounds/sndLevel1/sndLevel1.yy",},
     {"name":"sndLevel2","order":13,"path":"sounds/sndLevel2/sndLevel2.yy",},
     {"name":"sndRedSpirit","order":14,"path":"sounds/sndRedSpirit/sndRedSpirit.yy",},
+    {"name":"sndTimeAttack","order":16,"path":"sounds/sndTimeAttack/sndTimeAttack.yy",},
     {"name":"sprClassic","order":1,"path":"sprites/sprClassic/sprClassic.yy",},
     {"name":"sprClock","order":1,"path":"sprites/sprClock/sprClock.yy",},
     {"name":"sprContinue","order":2,"path":"sprites/sprContinue/sprContinue.yy",},
@@ -72,6 +74,7 @@
     {"name":"sprRedSpirit","order":10,"path":"sprites/sprRedSpirit/sprRedSpirit.yy",},
     {"name":"sprStartButton","order":7,"path":"sprites/sprStartButton/sprStartButton.yy",},
     {"name":"sprTimeAttack","order":8,"path":"sprites/sprTimeAttack/sprTimeAttack.yy",},
+    {"name":"sprTimeAttackBackground","order":10,"path":"sprites/sprTimeAttackBackground/sprTimeAttackBackground.yy",},
     {"name":"sprTitle","order":9,"path":"sprites/sprTitle/sprTitle.yy",},
     {"name":"sprTrail","order":11,"path":"sprites/sprTrail/sprTrail.yy",},
     {"name":"sprWall","order":12,"path":"sprites/sprWall/sprWall.yy",},

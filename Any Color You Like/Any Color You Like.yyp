@@ -31,6 +31,7 @@
   },
   "name":"Any Color You Like",
   "resources":[
+    {"id":{"name":"font_bold_large","path":"fonts/font_bold_large/font_bold_large.yy",},},
     {"id":{"name":"Searching","path":"fonts/Searching/Searching.yy",},},
     {"id":{"name":"TODO LIST","path":"notes/TODO LIST/TODO LIST.yy",},},
     {"id":{"name":"objBlueSpirit","path":"objects/objBlueSpirit/objBlueSpirit.yy",},},
@@ -88,6 +89,7 @@
     {"id":{"name":"sndLevel1","path":"sounds/sndLevel1/sndLevel1.yy",},},
     {"id":{"name":"sndLevel2","path":"sounds/sndLevel2/sndLevel2.yy",},},
     {"id":{"name":"sndRedSpirit","path":"sounds/sndRedSpirit/sndRedSpirit.yy",},},
+    {"id":{"name":"sndTimeAttack","path":"sounds/sndTimeAttack/sndTimeAttack.yy",},},
     {"id":{"name":"sprBackground","path":"sprites/sprBackground/sprBackground.yy",},},
     {"id":{"name":"sprBlueSpirit","path":"sprites/sprBlueSpirit/sprBlueSpirit.yy",},},
     {"id":{"name":"sprClassic","path":"sprites/sprClassic/sprClassic.yy",},},
@@ -112,6 +114,7 @@
     {"id":{"name":"sprRedSpirit","path":"sprites/sprRedSpirit/sprRedSpirit.yy",},},
     {"id":{"name":"sprStartButton","path":"sprites/sprStartButton/sprStartButton.yy",},},
     {"id":{"name":"sprTimeAttack","path":"sprites/sprTimeAttack/sprTimeAttack.yy",},},
+    {"id":{"name":"sprTimeAttackBackground","path":"sprites/sprTimeAttackBackground/sprTimeAttackBackground.yy",},},
     {"id":{"name":"sprTitle","path":"sprites/sprTitle/sprTitle.yy",},},
     {"id":{"name":"sprTrail","path":"sprites/sprTrail/sprTrail.yy",},},
     {"id":{"name":"sprWall","path":"sprites/sprWall/sprWall.yy",},},

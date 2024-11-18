@@ -1,3 +1,7 @@
+if (global.mode = "TimeAttack"){
+	global.boosted_move_speed = 20;
+	global.move_speed = 14;
+}
 // Sets movement speed
 global.move_speed = 7;
 

@@ -10,10 +10,16 @@ global.move_speed = 7;
     if (room == rmLevel1) {
         room_goto(rmLevel1);
 		audio_stop_sound(sndChasing);
+		audio_stop_sound(sndBoost);
+		audio_stop_sound(sndFreeze);
     } else if (room == rmLevel2) {
         room_goto(rmLevel2);
+		audio_stop_sound(sndBoost);
+		audio_stop_sound(sndFreeze);
 		audio_stop_sound(sndChasing);
     } else if (room == rmLevel3) {
         room_goto(rmLevel3);
 		audio_stop_sound(sndChasing);
+		audio_stop_sound(sndBoost);
+		audio_stop_sound(sndFreeze);
     }

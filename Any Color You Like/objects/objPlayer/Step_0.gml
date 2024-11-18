@@ -1,3 +1,13 @@
+if (global.timer < 0 && global.mode = "TimeAttack"){
+	audio_stop_all();
+	room_goto(rmTimeAttack);
+}
+
+if (global.mode = "TimeAttack"){
+	global.boosted_move_speed = 20;
+	global.move_speed = 14;
+}
+
 // Target the player's position
 camera_target_x = lerp(camera_target_x, x, camera_smooth_speed);
 camera_target_y = lerp(camera_target_y, y, camera_smooth_speed);
@@ -9,14 +19,19 @@ var camera = view_camera[0];
 var cam_width = camera_get_view_width(camera);
 var cam_height = camera_get_view_height(camera);
 camera_set_view_pos(camera, camera_target_x - cam_width / 2, camera_target_y - cam_height / 2);
-if(room = rmLevel1){
+if(room = rmLevel1 && global.mode = "Classic"){
 	if(!audio_is_playing(sndLevel1)){
 		audio_play_sound(sndLevel1, 1, true);
 	}
 }
-if(room = rmLevel2){
+if(room = rmLevel2 && global.mode = "Classic"){
 	if(!audio_is_playing(sndLevel2)){
 		audio_play_sound(sndLevel2, 1, true);
+	}
+}
+if(global.mode = "TimeAttack"){
+	if(!audio_is_playing(sndTimeAttack)){
+		audio_play_sound(sndTimeAttack, 1, true);
 	}
 }
 
