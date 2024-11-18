@@ -1,7 +1,7 @@
 // Mouse Left Pressed Event
 if (hovering) {
 	room_goto(rmLevel3);
-	global.mode = "Classic"; 
+	global.mode = "Multiprism"; 
 	global.Score = 0;
 	global.lives = 3;
 global.maze_left = 1195;

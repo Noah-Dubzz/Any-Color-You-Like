@@ -9,9 +9,15 @@ var camera = view_camera[0];
 var cam_width = camera_get_view_width(camera);
 var cam_height = camera_get_view_height(camera);
 camera_set_view_pos(camera, camera_target_x - cam_width / 2, camera_target_y - cam_height / 2);
-
-if(!audio_is_playing(sndLevel1)){
-	audio_play_sound(sndLevel1, 1, true);
+if(room = rmLevel1){
+	if(!audio_is_playing(sndLevel1)){
+		audio_play_sound(sndLevel1, 1, true);
+	}
+}
+if(room = rmLevel2){
+	if(!audio_is_playing(sndLevel2)){
+		audio_play_sound(sndLevel2, 1, true);
+	}
 }
 
 // Store previous position
@@ -86,6 +92,7 @@ if (!ghost) {
         y = previous_y;
     }
 
+	if (room = rmLevel1){
 	var locations = [
 		[700, 450],
 		[1315, 145],
@@ -97,7 +104,43 @@ if (!ghost) {
 		[700, 630],
 		[1320, 920]
 	];
-
+	}
+	if (room = rmLevel2){
+	var locations = [
+	[435, 250],
+    [1380, 250],
+    [1475, 845],
+    [545, 845],
+    [905, 335],
+	[1025, 335],
+	[860, 845],
+	[1175, 845],
+    [1660, 905],
+	[265, 905],
+	[1660, 195],
+	[265, 195],
+	[1270, 535],
+	[655, 535]
+	];
+	}
+	if (room = rmLevel3){
+	var locations = [
+	[1765, 1065],
+    [1245, 1065],
+    [1345, 765],
+    [1665, 765],
+    [1510, 405],
+	[1245, 295],
+	[1765, 295],
+	[1345, 1400],
+    [1665, 1400],
+	[1710, 1690],
+	[1295, 1690],
+	[1415, 1690],
+	[1595, 1690],
+	[1500, 920]
+	];
+	}
 // Initialize variables to find the closest location
 var closest_distance = -1;
 var closest_location = [x, y]; // Default to current position

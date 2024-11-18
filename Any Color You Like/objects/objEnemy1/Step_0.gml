@@ -15,6 +15,8 @@ if (dist_to_player < detection_range) {
     }
 }
 
+
+
 if (player_visible && global.nochasing == false) {
     // Start chasing the player if it's not already chasing them
     if (!chasing) {

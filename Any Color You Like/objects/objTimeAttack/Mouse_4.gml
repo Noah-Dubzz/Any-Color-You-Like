@@ -1,7 +1,7 @@
 // Mouse Left Pressed Event
 if (hovering) {
 	room_goto(rmLevel1);
-	global.mode = "Classic"; 
+	global.mode = "TimeAttack"; 
 	global.Score = 0;
 	audio_play_sound(sndDoor, 1, false);
 

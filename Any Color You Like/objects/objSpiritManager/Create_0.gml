@@ -27,8 +27,13 @@ function generate_spirit(spirit_type) {
 randomize();
 
 // Generate a random position within the room
-var spawn_x = random(788);
-var spawn_y = random(872);
+var spawn_x = random(room_width);
+var spawn_y = random(room_height);
+
+// Clamp the position to ensure it stays within the maze boundaries
+spawn_x = clamp(spawn_x, global.maze_left + sprite_width / 2, global.maze_right - sprite_width / 2);
+spawn_y = clamp(spawn_y, global.maze_top + sprite_height / 2, global.maze_bottom - sprite_height / 2);
+
 
         // Create the spirit instance
         spirit_instance = instance_create_layer(spawn_x, spawn_y, "ColorSpirits", spirit_type);

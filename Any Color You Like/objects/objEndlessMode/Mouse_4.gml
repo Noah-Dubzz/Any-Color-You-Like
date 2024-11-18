@@ -6,7 +6,7 @@ if (hovering) {
 	global.maze_right = 1732;
 	global.maze_top = 112;
 	global.maze_bottom = 965;
-	global.mode = "Classic"; 
+	global.mode = "Endless"; 
 	global.Score = 0;
 	audio_play_sound(sndDoor, 1, false);
 

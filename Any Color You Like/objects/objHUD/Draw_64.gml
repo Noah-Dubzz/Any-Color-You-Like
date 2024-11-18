@@ -6,7 +6,7 @@ draw_text(10, 10, "Score: " + string(global.Score));
 
 // Draw the lives as sprPlayer sprites in the bottom-right corner
 var lives_x = display_get_gui_width() - 40; // Start from the bottom-right
-var lives_y = display_get_gui_height() - 1075; // Adjust vertical position
+var lives_y = display_get_gui_height() - 1065; // Adjust vertical position
 var player_sprite_width = sprite_get_width(sprPlayer); // Width of the player sprite
 
 for (var i = 0; i < global.lives; i++) {

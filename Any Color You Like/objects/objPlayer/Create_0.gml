@@ -2,6 +2,7 @@
 global.move_speed = 7;
 
 global.nochasing = false;
+global.respawning = false; // Indicates whether we're waiting for the cooldown
 
 // Initialize the speed boost duration
 global.speed_boost_duration = 5; // Duration in frames (2 seconds at 60 FPS)
