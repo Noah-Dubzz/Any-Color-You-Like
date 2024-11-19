@@ -1,5 +1,5 @@
 // Check if the player has any remaining lives
-if (global.mode = "Classic"){
+if (global.mode = "Classic" || global.mode = "Endless"){
 	if (global.lives > 0) {
 		// Respawn logic is already handled in the collision code; no need to do anything else here.
 	} else {
@@ -21,7 +21,7 @@ if (!global.respawning) {
     audio_play_sound(sndDie, 100, false);
     // Prevent the player from moving during the respawn
     global.move_speed = 0;
-	if (global.mode = "Classic"){
+	if (global.mode = "Classic" || global.mode = "Endless"){
     global.lives--;
 	}
     // Set alarm[0] to trigger after the sound's duration (converted to frames)

@@ -3,6 +3,7 @@
   "ResourceOrderSettings":[
     {"name":"font_bold_large","order":1,"path":"fonts/font_bold_large/font_bold_large.yy",},
     {"name":"objDoor","order":1,"path":"objects/objDoor/objDoor.yy",},
+    {"name":"objEndlessMaze","order":4,"path":"objects/objEndlessMaze/objEndlessMaze.yy",},
     {"name":"objEndlessMode","order":1,"path":"objects/objEndlessMode/objEndlessMode.yy",},
     {"name":"objEnemy1","order":2,"path":"objects/objEnemy1/objEnemy1.yy",},
     {"name":"objEnemyManager","order":3,"path":"objects/objEnemyManager/objEnemyManager.yy",},
@@ -58,6 +59,8 @@
     {"name":"sprContinue","order":2,"path":"sprites/sprContinue/sprContinue.yy",},
     {"name":"sprDoor","order":2,"path":"sprites/sprDoor/sprDoor.yy",},
     {"name":"sprEndless","order":3,"path":"sprites/sprEndless/sprEndless.yy",},
+    {"name":"sprEndlessBackground","order":14,"path":"sprites/sprEndlessBackground/sprEndlessBackground.yy",},
+    {"name":"sprEndlessMaze","order":4,"path":"sprites/sprEndlessMaze/sprEndlessMaze.yy",},
     {"name":"sprEnemy1","order":3,"path":"sprites/sprEnemy1/sprEnemy1.yy",},
     {"name":"sprGameBackground","order":4,"path":"sprites/sprGameBackground/sprGameBackground.yy",},
     {"name":"sprGameBackground2","order":5,"path":"sprites/sprGameBackground2/sprGameBackground2.yy",},

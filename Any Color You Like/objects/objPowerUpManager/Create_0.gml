@@ -61,6 +61,33 @@ power_up_positions = [
 	[1500, 920]
 ];
 }
+if (room = rmEndless){
+
+power_up_positions = [
+    [65, 80],
+    [50, 470],
+    [50, 750],
+    [50, 1025],
+    [560, 935],
+	[385, 795],
+	[380, 380],
+	[475, 170],
+    [670, 170],
+	[740, 485],
+	[1220, 485],
+	[1220, 740],
+	[740, 740],
+	[1305, 220],
+	[1575, 365],
+	[1855, 80],
+	[1855, 1025],
+	[1575, 860],
+	[1305, 1000],
+	[1375, 610],
+	[560, 610],
+	[985, 55]
+];
+}
 
 // Function to generate a power-up at a random position from the predefined locations
 function generate_power_up(power_up_type) {
@@ -91,6 +118,10 @@ function generate_power_up(power_up_type) {
 
 // Generate either objSpeedPowerUp or objSlowPowerUp randomly
 if (global.mode = "Classic"){
+var random_power_up = choose(objSlowPowerUp, objSpeedPowerUp);
+}
+// Generate either objSpeedPowerUp or objSlowPowerUp randomly
+if (global.mode = "Endless"){
 var random_power_up = choose(objSlowPowerUp, objSpeedPowerUp);
 }
 if (global.mode = "TimeAttack"){

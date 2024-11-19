@@ -40,15 +40,69 @@ if (room == rmLevel3) {
         [26000, 1500, 1785]
     ];
 }
+if (room == rmEndless) {
+    // Define an array of enemy locations
+    var enemyLocations = [
+        [1530, 75],
+        [1530, 180],
+        [1575, 440],
+        [1575, 775],
+        [1690, 985],
+        [1505, 985],
+        [1795, 660],
+        [1400, 505],
+        [1795, 270],
+        [1795, 935],
+        [1065, 380],
+        [890, 380],
+        [1400, 710],
+        [980, 880],
+        [830, 960],
+        [1140, 960],
+        [565, 710],
+        [565, 505],
+        [385, 455],
+        [385, 885],
+        [200, 1025],
+        [200, 180],
+        [150, 270],
+        [150, 375],
+        [150, 835],
+        [150, 935],
+        [345, 605],
+        [565, 55],
+        [1795, 555]
+    ];
 
-// Loop through the spawn data and check conditions
-for (var i = 0; i < array_length(spawnData); i++) {
-    var enscore = spawnData[i][0];
-    var enx = spawnData[i][1];
-    var eny = spawnData[i][2];
+    // Choose a random number of enemies to spawn (min 3, max total enemy locations)
+    var numEnemiesToSpawn = irandom_range(3, 8);
 
-    if (global.Score >= enscore) {
+    // Randomly pick unique spots from the array to spawn enemies
+    var chosenLocations = array_create(0); // To store selected locations
+    while (array_length(chosenLocations) < numEnemiesToSpawn) {
+        var randomIndex = irandom(array_length(enemyLocations) - 1);
+        if (!array_contains(chosenLocations, randomIndex)) {
+            array_push(chosenLocations, randomIndex);
+        }
+    }
+
+    // Spawn enemies at the chosen locations
+    for (var i = 0; i < array_length(chosenLocations); i++) {
+        var loc = enemyLocations[chosenLocations[i]];
+        var enx = loc[0];
+        var eny = loc[1];
         instance_create_layer(enx, eny, "Instances", objEnemy1);
+    }
+} else {
+    // Normal spawning logic for other rooms
+    for (var i = 0; i < array_length(spawnData); i++) {
+        var enscore = spawnData[i][0];
+        var enx = spawnData[i][1];
+        var eny = spawnData[i][2];
+
+        if (global.Score >= enscore) {
+            instance_create_layer(enx, eny, "Instances", objEnemy1);
+        }
     }
 }
 

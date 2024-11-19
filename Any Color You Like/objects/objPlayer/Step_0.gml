@@ -156,6 +156,32 @@ if (!ghost) {
 	[1500, 920]
 	];
 	}
+	if (room = rmEndless){
+	var locations = [
+	[65, 80],
+    [50, 470],
+    [50, 750],
+    [50, 1025],
+    [560, 935],
+	[385, 795],
+	[380, 380],
+	[475, 170],
+    [670, 170],
+	[740, 485],
+	[1220, 485],
+	[1220, 740],
+	[740, 740],
+	[1305, 220],
+	[1575, 365],
+	[1855, 80],
+	[1855, 1025],
+	[1575, 860],
+	[1305, 1000],
+	[1375, 610],
+	[560, 610],
+	[985, 55]
+	];
+	}
 // Initialize variables to find the closest location
 var closest_distance = -1;
 var closest_location = [x, y]; // Default to current position

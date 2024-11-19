@@ -22,4 +22,11 @@ global.move_speed = 7;
 		audio_stop_sound(sndChasing);
 		audio_stop_sound(sndBoost);
 		audio_stop_sound(sndFreeze);
+    } else if (room == rmEndless) {
+        room_goto(rmEndless);
+		audio_stop_sound(sndChasing);
+		audio_stop_sound(sndBoost);
+		audio_stop_sound(sndFreeze);
     }
+	
+	

@@ -15,6 +15,9 @@ if (global.mode == "Classic") {
         room_goto(rmLevel3);
     }
 }
+if (global.mode == "Endless") {
+	room_goto(rmEndless);
+}
 if (global.mode == "TimeAttack") {
     // Choose a random room from rmLevel1, rmLevel2, and rmLevel3
     var selected_room = choose(rmLevel1, rmLevel2, rmLevel3);
