@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprTrail",
-    "path":"sprites/sprTrail/sprTrail.yy",
+    "name":"sprTrail2",
+    "path":"sprites/sprTrail2/sprTrail2.yy",
   },
   "spriteMaskId":null,
   "visible":true,

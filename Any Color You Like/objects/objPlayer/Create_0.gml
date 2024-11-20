@@ -2,6 +2,17 @@ if (global.mode = "TimeAttack"){
 	global.boosted_move_speed = 20;
 	global.move_speed = 14;
 }
+if (global.mode = "MultiPrism"){
+	if (room = rmLevel1){
+		instance_create_layer(970, 825, "Instances",objPlayer2);
+	}
+	if (room = rmLevel2){
+		instance_create_layer(960, 840, "Instances",objPlayer2);
+	}
+	if (room = rmLevel3){
+		instance_create_layer(1505, 1440, "Instances",objPlayer2);
+	}
+}
 // Sets movement speed
 global.move_speed = 7;
 

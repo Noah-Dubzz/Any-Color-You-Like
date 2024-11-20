@@ -1,19 +1,15 @@
 // Mouse Left Pressed Event
 if (hovering) {
-	room_goto(rmLevel3);
-	global.mode = "Multiprism"; 
+	room_goto(rmLevel1);
+	global.mode = "MultiPrism"; 
 	global.Score = 0;
 	global.lives = 3;
-global.maze_left = 1195;
-global.maze_right = 1795;
-global.maze_top = 245;
-global.maze_bottom = 1800;
+	global.p2lives = 3;
+	global.maze_left = 580;
+	global.maze_right = 1330;
+	global.maze_top = 100;
+	global.maze_bottom = 930;
 	audio_play_sound(sndDoor, 1, false);
-
-	if (global.Score < 5000){
-		audio_play_sound(sndLevel1, 100, true);
-	}
-
 	audio_stop_sound(sndBackgroundMusic);
 	audio_stop_sound(sndDead);
 }

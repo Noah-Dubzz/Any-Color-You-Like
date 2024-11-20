@@ -13,18 +13,29 @@ camera_target_x = lerp(camera_target_x, x, camera_smooth_speed);
 camera_target_y = lerp(camera_target_y, y, camera_smooth_speed);
 
 // Get the active camera
+if (global.mode = "Classic" || global.mode = "Endless" || global.mode = "TimeAttack"){
+view_visible[0] = true;
+view_visible[1] = false;
+view_visible[2] = false;
 var camera = view_camera[0];
+}
+if (global.mode = "MultiPrism"){
+view_visible[0] = false;
+view_visible[1] = true;
+view_visible[2] = true;
+var camera = view_camera[1];
+}
 
 // Center the camera on the smoothed target
 var cam_width = camera_get_view_width(camera);
 var cam_height = camera_get_view_height(camera);
 camera_set_view_pos(camera, camera_target_x - cam_width / 2, camera_target_y - cam_height / 2);
-if(room = rmLevel1 && global.mode = "Classic"){
+if(room = rmLevel1 && global.mode == "Classic"){
 	if(!audio_is_playing(sndLevel1)){
 		audio_play_sound(sndLevel1, 1, true);
 	}
 }
-if(room = rmLevel2 && global.mode = "Classic"){
+if(room = rmLevel2 && global.mode == "Classic"){
 	if(!audio_is_playing(sndLevel2)){
 		audio_play_sound(sndLevel2, 1, true);
 	}
@@ -34,6 +45,12 @@ if(global.mode = "TimeAttack"){
 		audio_play_sound(sndTimeAttack, 1, true);
 	}
 }
+if(global.mode = "MultiPrism"){
+	if(!audio_is_playing(sndMultiPrism)){
+		audio_play_sound(sndMultiPrism, 1, true);
+	}
+}
+
 
 // Store previous position
 previous_x = x;
@@ -44,16 +61,16 @@ move_x = 0;
 move_y = 0;
 
 // Checks for input
-if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
+if (keyboard_check(ord("A"))) {
     move_x = -1;
 }
-if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
+if (keyboard_check(ord("D"))) {
     move_x = 1;
 }
-if (keyboard_check(vk_up) || keyboard_check(ord("W"))) {
+if (keyboard_check(ord("W"))) {
     move_y = -1;
 }
-if (keyboard_check(vk_down) || keyboard_check(ord("S"))) {
+if (keyboard_check(ord("S"))) {
     move_y = 1;
 }
 

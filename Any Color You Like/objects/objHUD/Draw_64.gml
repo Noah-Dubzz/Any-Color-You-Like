@@ -2,20 +2,31 @@
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white); // Set color for the text
-if (global.mode == "Classic"){
+if (global.mode == "Classic" || global.mode == "Endless" || global.mode == "MultiPrism"){
     draw_text(10, 10, "Score: " + string(global.Score));
 }
 if (global.mode == "TimeAttack" && room != rmTimeAttack){
     draw_text(10, 10, "Levels Completed: " + string(global.levelscompleted));
 }
 
-// Draw the lives as sprPlayer sprites in the bottom-right corner
+// Draw Player 1's lives as sprPlayer sprites in the bottom-right corner
 var lives_x = display_get_gui_width() - 40; // Start from the bottom-right
 var lives_y = display_get_gui_height() - 1065; // Adjust vertical position
 var player_sprite_width = sprite_get_width(sprPlayer); // Width of the player sprite
 
 for (var i = 0; i < global.lives; i++) {
     draw_sprite(sprPlayer, 0, lives_x - i * (player_sprite_width + 5), lives_y); 
+}
+
+if (global.mode = "MultiPrism"){
+// Draw Player 2's lives as sprPlayer2 sprites below Player 1's lives
+var p2lives_x = display_get_gui_width() - 40; // Start from the same horizontal position
+var p2lives_y = lives_y + sprite_get_height(sprPlayer) + 10; // Position directly below Player 1's lives
+var p2player_sprite_width = sprite_get_width(sprPlayer2); // Width of the player sprite
+
+for (var i = 0; i < global.p2lives; i++) {
+    draw_sprite(sprPlayer2, 0, p2lives_x - i * (p2player_sprite_width + 5), p2lives_y); 
+}
 }
 
 // Draw the timer (minutes:seconds) at the top-center of the screen
@@ -35,9 +46,11 @@ var x_position = (display_get_width() - text_width) / 2;
 draw_text(x_position, 10, time_display);
 
 // If the current room is rmTimeAttack, display the congratulatory text
-if (room == rmTimeAttack) {
+if (room == rmTimeAttack){
+	if (global.mode == "TimeAttack" || global.mode == "Endless") {
     var congrats_text = "";
     var congrats_color = c_white;
+	}
     
     // Change the congratulatory message based on levels completed
     if (global.levelscompleted == 5) {
@@ -49,6 +62,17 @@ if (room == rmTimeAttack) {
     } else {
         congrats_text = "Where did your life go?????";
     }
+} else if (room == rmMultiPrism) {
+    var congrats_text = "";
+    var congrats_color = c_white;
+    
+    // Change the congratulatory message based on levels completed
+    if (global.winner == 1) {
+        congrats_text = "Player 1 is the Winner!";
+    } else if (global.winner == 2) {
+        congrats_text = "Player 2 is the Winner!";
+    }
+
     
     // Display the congratulatory text at the top-center of the screen
     draw_set_halign(fa_center);

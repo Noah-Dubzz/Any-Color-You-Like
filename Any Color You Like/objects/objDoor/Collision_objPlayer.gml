@@ -15,6 +15,11 @@ if (global.mode == "Classic") {
         room_goto(rmLevel3);
     }
 }
+if (global.mode == "MultiPrism") {
+ // Choose a random room from rmLevel1, rmLevel2, and rmLevel3
+    var selected_room = choose(rmLevel1, rmLevel2, rmLevel3);
+    room_goto(selected_room);  // Go to the selected room
+}
 if (global.mode == "Endless") {
 	room_goto(rmEndless);
 }

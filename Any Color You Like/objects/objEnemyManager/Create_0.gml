@@ -5,7 +5,6 @@ if (room == rmLevel1) {
     spawnData = [
         [0, 700, 450],
         [1000, 1315, 145],
-        [2000, 970, 820],
         [3000, 1250, 630],
         [4000, 630, 920],
         [5000, 630, 150],
@@ -103,6 +102,68 @@ if (room == rmEndless) {
         if (global.Score >= enscore) {
             instance_create_layer(enx, eny, "Instances", objEnemy1);
         }
+    }
+}
+if (global.mode = "MultiPrism") {
+    // Define an array of enemy locations
+	if (room = rmLevel1){
+    var enemyLocations = [
+        [700, 450],
+        [1315, 145],
+        [970, 820],
+        [1250, 630],
+        [630, 920],
+        [630, 150],
+        [1250, 450],
+        [700, 630],
+        [1320, 920]
+    ];
+	}
+	if (room = rmLevel2){
+    var enemyLocations = [
+        [255, 315],
+        [1665, 185],
+        [1665, 830],
+        [655, 535],
+        [1260, 535],
+        [560, 830],
+        [240, 915],
+        [240, 455],
+        [960, 635]
+    ];
+	}
+	if (room = rmLevel3){
+    var enemyLocations = [
+        [1740, 560],
+        [1280, 1060],
+        [1740, 1555],
+        [1280, 320],
+        [1740, 320],
+        [1280, 1555],
+        [1280, 560],
+        [1740, 1060],
+        [1500, 1785]
+    ];
+	}
+
+    // Choose a random number of enemies to spawn (min 3, max total enemy locations)
+    var numEnemiesToSpawn = irandom_range(1, 5);
+
+    // Randomly pick unique spots from the array to spawn enemies
+    var chosenLocations = array_create(0); // To store selected locations
+    while (array_length(chosenLocations) < numEnemiesToSpawn) {
+        var randomIndex = irandom(array_length(enemyLocations) - 1);
+        if (!array_contains(chosenLocations, randomIndex)) {
+            array_push(chosenLocations, randomIndex);
+        }
+    }
+
+    // Spawn enemies at the chosen locations
+    for (var i = 0; i < array_length(chosenLocations); i++) {
+        var loc = enemyLocations[chosenLocations[i]];
+        var enx = loc[0];
+        var eny = loc[1];
+        instance_create_layer(enx, eny, "Instances", objEnemy1);
     }
 }
 

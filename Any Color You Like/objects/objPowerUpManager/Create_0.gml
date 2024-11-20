@@ -12,7 +12,6 @@ if (room = rmLevel1){
 power_up_positions = [
     [700, 450],
     [1315, 145],
-    [970, 820],
     [1250, 630],
     [630, 920],
 	[630, 150],
@@ -122,6 +121,10 @@ var random_power_up = choose(objSlowPowerUp, objSpeedPowerUp);
 }
 // Generate either objSpeedPowerUp or objSlowPowerUp randomly
 if (global.mode = "Endless"){
+var random_power_up = choose(objSlowPowerUp, objSpeedPowerUp);
+}
+// Generate either objSpeedPowerUp or objSlowPowerUp randomly
+if (global.mode = "MultiPrism"){
 var random_power_up = choose(objSlowPowerUp, objSpeedPowerUp);
 }
 if (global.mode = "TimeAttack"){
