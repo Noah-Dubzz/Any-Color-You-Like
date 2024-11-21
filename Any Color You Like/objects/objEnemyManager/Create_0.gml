@@ -39,6 +39,29 @@ if (room == rmLevel3) {
         [26000, 1500, 1785]
     ];
 }
+if (room == rmLevel4) {
+    spawnData = [
+        [27000, 1845, 865],
+        [28000, 1500, 785],
+        [29000, 1150, 675],
+        [30000, 1500, 1455],
+        [31000, 1150, 1455],
+        [32000, 1850, 1205]
+    ];
+}
+if (room == rmLevel5) {
+    spawnData = [
+        [00000, 0000, 0000],
+        [00000, 0000, 0000],
+        [00000, 0000, 0000],
+        [00000, 0000, 0000],
+        [00000, 0000, 0000],
+        [00000, 0000, 0000],
+        [00000, 0000, 0000],
+        [00000, 0000, 0000],
+        [00000, 0000, 0000]
+    ];
+}
 if (room == rmEndless) {
     // Define an array of enemy locations
     var enemyLocations = [
@@ -74,7 +97,7 @@ if (room == rmEndless) {
     ];
 
     // Choose a random number of enemies to spawn (min 3, max total enemy locations)
-    var numEnemiesToSpawn = irandom_range(3, 8);
+    var numEnemiesToSpawn = irandom_range(3, 6);
 
     // Randomly pick unique spots from the array to spawn enemies
     var chosenLocations = array_create(0); // To store selected locations
@@ -143,6 +166,16 @@ if (global.mode = "MultiPrism") {
         [1280, 560],
         [1740, 1060],
         [1500, 1785]
+    ];
+	}
+	if (room = rmLevel4){
+    var enemyLocations = [
+        [1845, 865],
+        [1500, 785],
+        [1150, 675],
+        [1500, 1455],
+        [1150, 1455],
+        [1850, 1205]
     ];
 	}
 

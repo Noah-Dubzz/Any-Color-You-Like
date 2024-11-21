@@ -5,7 +5,9 @@ if (hovering) {
 	global.maze_top = 100;
 	global.maze_bottom = 930;
 	global.lives = -1;
-	room_goto(rmLevel1);
+ // Choose a random room from rmLevel1, rmLevel2, and rmLevel3
+    var selected_room = choose(rmLevel1, rmLevel2, rmLevel3, rmLevel4);
+    room_goto(selected_room);  // Go to the selected room
 	global.mode = "TimeAttack"; 
 	global.Score = 0;
 	global.timer_initialized = true;

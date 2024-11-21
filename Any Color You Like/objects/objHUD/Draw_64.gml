@@ -3,9 +3,11 @@ draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white); // Set color for the text
 if (global.mode == "Classic" || global.mode == "Endless" || global.mode == "MultiPrism"){
+	draw_set_font(font_bold_large);  // Make sure to use a bold large font here
     draw_text(10, 10, "Score: " + string(global.Score));
 }
 if (global.mode == "TimeAttack" && room != rmTimeAttack){
+	draw_set_font(font_bold_large);  // Make sure to use a bold large font here
     draw_text(10, 10, "Levels Completed: " + string(global.levelscompleted));
 }
 
@@ -43,7 +45,10 @@ var text_width = string_width(time_display);
 var x_position = (display_get_width() - text_width) / 2;
 
 // Draw the time at the top center of the screen
+if (global.mode == "TimeAttack"){
+draw_set_font(font_bold_large);  // Make sure to use a bold large font here
 draw_text(x_position, 10, time_display);
+}
 
 // If the current room is rmTimeAttack, display the congratulatory text
 if (room == rmTimeAttack){
@@ -62,6 +67,19 @@ if (room == rmTimeAttack){
     } else {
         congrats_text = "Where did your life go?????";
     }
+	    // Display the congratulatory text at the top-center of the screen
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_top);
+    draw_set_color(congrats_color);  // Set color for the congratulatory text
+    draw_text(display_get_width() / 2, 50, congrats_text);
+    
+    // Display the levels completed at the center of the screen in large, bold text
+    draw_set_halign(fa_center);
+    draw_set_valign(fa_middle);
+    draw_set_font(font_bold_large);  // Make sure to use a bold large font here
+    draw_set_color(c_white);  // Set color for the text
+    draw_text(display_get_width() / 2, display_get_height() / 2, "Levels Completed: " + string(global.levelscompleted));
+	
 } else if (room == rmMultiPrism) {
     var congrats_text = "";
     var congrats_color = c_white;

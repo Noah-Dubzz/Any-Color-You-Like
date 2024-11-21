@@ -1,3 +1,11 @@
+if (keyboard_check(vk_escape)) {
+	room_goto(rmModeSelect);
+	global.mode = "Choosing";
+	var camera = view_camera[0];
+	global.Score = 0;
+	global.lives = 0;
+}
+
 if (global.timer < 0 && global.mode = "TimeAttack"){
 	audio_stop_all();
 	room_goto(rmTimeAttack);
@@ -40,6 +48,21 @@ if(room = rmLevel2 && global.mode == "Classic"){
 		audio_play_sound(sndLevel2, 1, true);
 	}
 }
+if(room = rmLevel3 && global.mode == "Classic"){
+	if(!audio_is_playing(sndLevel3)){
+		audio_play_sound(sndLevel3, 1, true);
+	}
+}
+if(room = rmLevel4 && global.mode == "Classic"){
+	if(!audio_is_playing(sndLevel4)){
+		audio_play_sound(sndLevel4, 1, true);
+	}
+}
+if(room = rmLevel5 && global.mode == "Classic"){
+	if(!audio_is_playing(sndLevel3)){
+		audio_play_sound(sndLevel3, 1, true);
+	}
+}
 if(global.mode = "TimeAttack"){
 	if(!audio_is_playing(sndTimeAttack)){
 		audio_play_sound(sndTimeAttack, 1, true);
@@ -50,7 +73,11 @@ if(global.mode = "MultiPrism"){
 		audio_play_sound(sndMultiPrism, 1, true);
 	}
 }
-
+if(global.mode = "Endless"){
+	if(!audio_is_playing(sndEndless)){
+		audio_play_sound(sndEndless, 1, true);
+	}
+}
 
 // Store previous position
 previous_x = x;
@@ -171,6 +198,34 @@ if (!ghost) {
 	[1415, 1690],
 	[1595, 1690],
 	[1500, 920]
+	];
+	}
+	if (room = rmLevel4){
+	var locations = [
+    [1500, 1115],
+    [1150, 1210],
+    [1850, 1455],
+    [1850, 675],
+    [1150, 865]
+	];
+	}
+	if (room = rmLevel5){
+	var locations = [
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000],
+    [0000, 0000]
 	];
 	}
 	if (room = rmEndless){

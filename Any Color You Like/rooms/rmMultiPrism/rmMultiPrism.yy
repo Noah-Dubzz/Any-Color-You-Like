@@ -1,7 +1,7 @@
 {
   "$GMRoom":"v1",
   "%Name":"rmMultiPrism",
-  "creationCodeFile":"",
+  "creationCodeFile":"rooms/rmMultiPrism/RoomCreationCode.gml",
   "inheritCode":false,
   "inheritCreationOrder":false,
   "inheritLayers":false,
