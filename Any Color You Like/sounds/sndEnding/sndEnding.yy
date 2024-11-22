@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sndEnding",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":15.13941,
+  "name":"sndEnding",
+  "parent":{
+    "name":"Sergeant",
+    "path":"folders/Sounds/Sergeant.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndEnding.wav",
+  "type":0,
+  "volume":1.0,
+}

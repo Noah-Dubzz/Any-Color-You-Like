@@ -76,7 +76,7 @@ if (room == rmTimeAttack){
     // Display the levels completed at the center of the screen in large, bold text
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
-    draw_set_font(font_bold_large);  // Make sure to use a bold large font here
+    draw_set_font(Grand_Total);  // Make sure to use a bold large font here
     draw_set_color(c_white);  // Set color for the text
     draw_text(display_get_width() / 2, display_get_height() / 2, "Levels Completed: " + string(global.levelscompleted));
 	
@@ -101,7 +101,7 @@ if (room == rmTimeAttack){
     // Display the levels completed at the center of the screen in large, bold text
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
-    draw_set_font(font_bold_large);  // Make sure to use a bold large font here
+	draw_set_font(Grand_Total);  // Make sure to use a bold large font here
     draw_set_color(c_white);  // Set color for the text
     draw_text(display_get_width() / 2, display_get_height() / 2, "Levels Completed: " + string(global.levelscompleted));
 }

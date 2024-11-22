@@ -15,6 +15,9 @@ if (global.mode = "MultiPrism"){
 	if (room = rmLevel4){
 		instance_create_layer(1540, 1295, "Instances",objPlayer2);
 	}
+	if (room = rmLevel5){
+		instance_create_layer(970, 740, "Instances",objPlayer2);
+	}
 }
 // Sets movement speed
 global.move_speed = 7;

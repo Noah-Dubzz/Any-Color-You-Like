@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprMaze3",
-    "path":"sprites/sprMaze3/sprMaze3.yy",
+    "name":"sprMaze5",
+    "path":"sprites/sprMaze5/sprMaze5.yy",
   },
   "spriteMaskId":null,
   "visible":true,

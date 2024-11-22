@@ -59,8 +59,8 @@ if(room = rmLevel4 && global.mode == "Classic"){
 	}
 }
 if(room = rmLevel5 && global.mode == "Classic"){
-	if(!audio_is_playing(sndLevel3)){
-		audio_play_sound(sndLevel3, 1, true);
+	if(!audio_is_playing(sndLevel4)){
+		audio_play_sound(sndLevel4, 1, true);
 	}
 }
 if(global.mode = "TimeAttack"){
@@ -211,21 +211,12 @@ if (!ghost) {
 	}
 	if (room = rmLevel5){
 	var locations = [
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000],
-    [0000, 0000]
+    [890, 755],
+    [1040, 410],
+    [890, 410],
+    [1040, 755],
+    [1265, 660],
+    [655, 500]
 	];
 	}
 	if (room = rmEndless){

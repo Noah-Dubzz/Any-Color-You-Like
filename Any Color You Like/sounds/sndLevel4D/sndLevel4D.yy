@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"sndLevel4D",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":9.009342,
+  "name":"sndLevel4D",
+  "parent":{
+    "name":"Sergeant",
+    "path":"folders/Sounds/Sergeant.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"sndLevel4D.wav",
+  "type":0,
+  "volume":1.0,
+}
