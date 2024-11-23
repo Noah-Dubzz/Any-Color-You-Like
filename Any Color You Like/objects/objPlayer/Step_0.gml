@@ -59,8 +59,8 @@ if(room = rmLevel4 && global.mode == "Classic"){
 	}
 }
 if(room = rmLevel5 && global.mode == "Classic"){
-	if(!audio_is_playing(sndLevel4)){
-		audio_play_sound(sndLevel4, 1, true);
+	if(!audio_is_playing(sndLevel5)){
+		audio_play_sound(sndLevel5, 1, true);
 	}
 }
 if(global.mode = "TimeAttack"){

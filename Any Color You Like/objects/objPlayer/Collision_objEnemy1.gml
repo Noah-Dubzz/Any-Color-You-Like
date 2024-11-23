@@ -14,11 +14,13 @@ if (global.mode = "Classic" || global.mode = "Endless" || global.mode = "MultiPr
 		global.winner = 2;
 		audio_stop_all();
 		audio_play_sound(sndYouWin, 1, true);
+		
 		}
 		if (global.mode = "TimeAttack" || global.mode = "Endless"){
 		room_goto(rmTimeAttack);
 		audio_stop_all();
 		audio_play_sound(sndYouWin, 1, true);
+		audio_play_sound(sndCongratulations, 1, false);
 		}
 	}
 }

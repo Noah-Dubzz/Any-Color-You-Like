@@ -58,14 +58,34 @@ if (room == rmTimeAttack){
 	}
     
     // Change the congratulatory message based on levels completed
-    if (global.levelscompleted == 5) {
+    if (global.levelscompleted <= 5) {
         congrats_text = "Good run!";
-    } else if (global.levelscompleted <= 10) {
-        congrats_text = "That was crazy!";
-    } else if (global.levelscompleted <= 15) {
-        congrats_text = "Jesus man, Chill!";
-    } else {
-        congrats_text = "Where did your life go?????";
+    } else if (global.levelscompleted <= 10 && global.levelscompleted > 5) {
+        congrats_text = "Try to collect Power-Ups!";
+    } else if (global.levelscompleted <= 15 && global.levelscompleted > 10) {
+        congrats_text = "Stay Focused, That's your best chance!";
+    } else if (global.levelscompleted <= 20 && global.levelscompleted > 15) {
+        congrats_text = "You're getting the hang of it!";
+    } else if (global.levelscompleted <= 25 && global.levelscompleted > 20) {
+        congrats_text = "Nice run! Keep up the good work!";
+    } else if (global.levelscompleted <= 30 && global.levelscompleted > 25) {
+        congrats_text = "Now that was cool!";
+    } else if (global.levelscompleted <= 35 && global.levelscompleted > 30) {
+        congrats_text = "Try Captured Echoes!";
+    } else if (global.levelscompleted <= 40 && global.levelscompleted > 35) {
+        congrats_text = "Nice job my friend! Well Done!";
+    } else if (global.levelscompleted <= 45 && global.levelscompleted > 40) {
+        congrats_text = "You're getting close to my record!";
+    } else if (global.levelscompleted <= 50 && global.levelscompleted > 45) {
+        congrats_text = "You beat my record! That's insane!";
+    } else if (global.levelscompleted <= 60 && global.levelscompleted > 50) {
+        congrats_text = "Oh my goodness you're good at this!";
+    } else if (global.levelscompleted <= 80 && global.levelscompleted > 60) {
+        congrats_text = "That was freaking amazing!";
+    } else if (global.levelscompleted <= 100 && global.levelscompleted > 80) {
+        congrats_text = "OMG WOW! You're good at this!!!";
+    } else if (global.levelscompleted <= 150 && global.levelscompleted > 100) {
+        congrats_text = "There's no way you just did that, here's my Discord noah_dubzz";
     }
 	    // Display the congratulatory text at the top-center of the screen
     draw_set_halign(fa_center);

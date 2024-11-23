@@ -32,7 +32,7 @@ if (global.cutscene == 1) {
 		global.cutscene = 0;
     }
 	if (global.currentcutscene == 5){
-        room_goto(rmEnding);
+        room_goto(rmModeSelect);
 		global.cutscene = 0;
     }
 }
