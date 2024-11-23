@@ -1,28 +1,52 @@
-if (global.mode = "TimeAttack"){
-	instance_destroy(self);
+if (global.mode == "TimeAttack") {
+    instance_destroy(self);
 }
 
-// Checks for player nearby
-var detection_range = 200; // Range that the enemy can see the player
+// Checks for players nearby
+var detection_range = 200; // Range that the enemy can see the players
 var player_visible = false;
+var target_player = noone; // Track the closest visible player
 
-// Calculates the direction and distance to player
-var dir_to_player = point_direction(x, y, objPlayer.x, objPlayer.y);
-var dist_to_player = point_distance(x, y, objPlayer.x, objPlayer.y);
+// Function to check visibility and proximity for a player
+function check_player_visibility(player_obj) {
+    var is_visible = false;
 
-// Checks if the player is in detection range and visible to the enemy
-if (dist_to_player < detection_range) {
-    // This is what checks if the player is in the enemy's line of sight
-    var hit = collision_line(x, y, objPlayer.x, objPlayer.y, objWall, true, true);
-    if (!hit) {
+    // Calculates the direction and distance to the player
+    var dir_to_player = point_direction(x, y, player_obj.x, player_obj.y);
+    var dist_to_player = point_distance(x, y, player_obj.x, player_obj.y);
+
+    // Checks if the player is in detection range and visible to the enemy
+    if (dist_to_player < detection_range) {
+        var hit = collision_line(x, y, player_obj.x, player_obj.y, objWall, true, true);
+        if (!hit) {
+            is_visible = true;
+        }
+    }
+
+    return {visible: is_visible, direction: dir_to_player, distance: dist_to_player};
+}
+
+// Check visibility for objPlayer
+var player1_status = check_player_visibility(objPlayer);
+if (player1_status.visible) {
+    player_visible = true;
+    target_player = objPlayer;
+}
+
+// Check visibility for objPlayer2
+if (global.mode = "MultiPrism"){
+var player2_status = check_player_visibility(objPlayer2);
+if (player2_status.visible) {
+    // If both players are visible, target the closest one
+    if (!player_visible || player2_status.distance < player1_status.distance) {
         player_visible = true;
+        target_player = objPlayer2;
     }
 }
-
-
+}
 
 if (player_visible && global.nochasing == false) {
-    // Start chasing the player if it's not already chasing them
+    // Start chasing the target player if not already chasing
     if (!chasing) {
         chasing = true;
         chase_timer = chase_duration; // Resets the chase timer
@@ -30,8 +54,11 @@ if (player_visible && global.nochasing == false) {
 }
 
 if (chasing && global.nochasing == false) {
-    // Moves towards the player once detected
-    direction = dir_to_player;
+    if (target_player != noone) {
+        // Moves towards the closest visible player
+        var dir_to_target = point_direction(x, y, target_player.x, target_player.y);
+        direction = dir_to_target;
+    }
     
     if (!audio_is_playing(sndChasing)) { // Check if sndChasing is not currently playing
         audio_play_sound(sndChasing, 100, true); // Play the sound
@@ -80,5 +107,7 @@ if (chasing && global.nochasing == false) {
     }
 }
 
+// Clamp position within maze boundaries
 x = clamp(x, global.maze_left + sprite_width / 2, global.maze_right - sprite_width / 2);
 y = clamp(y, global.maze_top + sprite_height / 2, global.maze_bottom - sprite_height / 2);
+
