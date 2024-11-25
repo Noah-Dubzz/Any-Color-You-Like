@@ -1,0 +1,1 @@
+    scrolling = false; // Reset scrolling state when joystick is neutral

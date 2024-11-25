@@ -53,6 +53,7 @@
     {"id":{"name":"objMaze4","path":"objects/objMaze4/objMaze4.yy",},},
     {"id":{"name":"objMaze5","path":"objects/objMaze5/objMaze5.yy",},},
     {"id":{"name":"objMeasurer","path":"objects/objMeasurer/objMeasurer.yy",},},
+    {"id":{"name":"objMenuController","path":"objects/objMenuController/objMenuController.yy",},},
     {"id":{"name":"objMultiPrism","path":"objects/objMultiPrism/objMultiPrism.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
     {"id":{"name":"objPlayer2","path":"objects/objPlayer2/objPlayer2.yy",},},

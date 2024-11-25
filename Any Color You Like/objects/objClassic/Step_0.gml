@@ -1,5 +1,5 @@
 // Step Event
-if (position_meeting(mouse_x, mouse_y, id)) {
+if (position_meeting(mouse_x, mouse_y, id) || (global.selected_obj = objClassic)) {
     if (!hovering) {  // Only play sound if it's not already hovering
 		audio_stop_sound(sndClassicMode);
 		audio_stop_sound(sndEndlessMode);

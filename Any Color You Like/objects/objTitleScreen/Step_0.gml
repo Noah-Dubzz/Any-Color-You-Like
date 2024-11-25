@@ -17,3 +17,4 @@ if (alpha >= isAnimating) {
         // Change to the still sprite after the animation
         sprite_index = sprLogoAnimationStill; // Switch to the static logo sprite
 }
+

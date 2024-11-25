@@ -19,6 +19,7 @@
     {"name":"objMaze4","order":5,"path":"objects/objMaze4/objMaze4.yy",},
     {"name":"objMaze5","order":6,"path":"objects/objMaze5/objMaze5.yy",},
     {"name":"objMeasurer","order":3,"path":"objects/objMeasurer/objMeasurer.yy",},
+    {"name":"objMenuController","order":9,"path":"objects/objMenuController/objMenuController.yy",},
     {"name":"objMultiPrism","order":2,"path":"objects/objMultiPrism/objMultiPrism.yy",},
     {"name":"objPlayer","order":8,"path":"objects/objPlayer/objPlayer.yy",},
     {"name":"objPlayer2","order":18,"path":"objects/objPlayer2/objPlayer2.yy",},

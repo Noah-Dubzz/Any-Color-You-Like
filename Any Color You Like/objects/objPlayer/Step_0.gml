@@ -1,4 +1,4 @@
-if (keyboard_check(vk_escape)) {
+if (keyboard_check(vk_escape) || gamepad_button_check_pressed(0, gp_start)) {
 	room_goto(rmModeSelect);
 	global.mode = "Choosing";
 	var camera = view_camera[0];
@@ -83,11 +83,11 @@ if(global.mode = "Endless"){
 previous_x = x;
 previous_y = y;
 
-// Resets movement direction
+// Reset movement direction
 move_x = 0;
 move_y = 0;
 
-// Checks for input
+// Keyboard input for movement
 if (keyboard_check(ord("A"))) {
     move_x = -1;
 }
@@ -101,19 +101,32 @@ if (keyboard_check(ord("S"))) {
     move_y = 1;
 }
 
-// Bug fix ignore this
-if (move_x != 0 && move_y != 0) {
-    move_x *= 0.7071; // 1 / sqrt(2)
-    move_y *= 0.7071;
+// Joystick input for movement (assumes joystick 0)
+var joy_x = gamepad_axis_value(0, gp_axislh); // Left stick horizontal axis
+var joy_y = gamepad_axis_value(0, gp_axislv); // Left stick vertical axis
+
+
+if (abs(joy_x) > 0.2) { // Deadzone check for X-axis
+    move_x = joy_x;
+}
+if (abs(joy_y) > 0.2) { // Deadzone check for Y-axis
+    move_y = joy_y;
 }
 
-// Checks for dash input and if dash is available
-if (keyboard_check_pressed(vk_space) && dash_timer == 0) {
+// Normalize diagonal movement to maintain consistent speed
+if (move_x != 0 && move_y != 0) {
+    var normalize_factor = 0.7071; // 1 / sqrt(2)
+    move_x *= normalize_factor;
+    move_y *= normalize_factor;
+}
+
+// Check for dash input (keyboard or joystick)
+if ((keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1)) && dash_timer == 0) {
     dash_active = true;
     dash_timer = dash_cooldown; // Starts cooldown timer
     dash_steps = dash_duration; // Sets the dash duration
     audio_play_sound(sndDash, 1, false);
-} else if (keyboard_check_pressed(vk_space) && dash_timer > 1) {
+} else if ((keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1)) && dash_timer > 1) {
     audio_play_sound(sndCoolDown, 1, false);
 }
 

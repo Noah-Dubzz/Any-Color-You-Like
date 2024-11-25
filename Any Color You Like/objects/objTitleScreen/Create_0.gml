@@ -15,3 +15,9 @@ alpha = 0;
 
 // Playback state
 isAnimating = true; // Flag to control animation state
+
+global.selected_obj = objClassic;
+ global.menu_selection = 0; // Index of selected menu item (0 = objClassic, 1 = objEndlessMode, etc.)
+ global.menu_items = [objClassic, objEndlessMode, objMultiPrism, objTimeAttack]; // Ordered list of menu objects
+ menu_initialized = true; // Prevent reinitialization
+
