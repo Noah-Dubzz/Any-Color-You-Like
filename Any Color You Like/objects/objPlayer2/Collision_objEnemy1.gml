@@ -12,8 +12,8 @@ if (global.mode = "Classic" || global.mode = "Endless" || global.mode = "MultiPr
 		if (global.mode = "MultiPrism"){
 		room_goto(rmMultiPrism);
 		global.winner = 1;
-		audio_stop_all();
-		audio_play_sound(sndYouWin, 1, true);
+		// Let Player 1's audio management handle the transition
+		audio_play_sound(sndYouWin, 1, false); // Play win sound without looping
 		}
 		if (global.mode = "TimeAttack" || global.mode = "Endless"){
 		room_goto(rmTimeAttack);

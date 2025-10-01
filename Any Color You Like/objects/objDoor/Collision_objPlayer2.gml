@@ -30,14 +30,14 @@ if (global.mode == "TimeAttack") {
 }
 	if (global.Score = 8000 && global.mode = "Classic"){
 		room_goto(rmLevel2);
-		audio_stop_all();
+		// Let Player 1 handle audio management
 		global.p2move_speed = 7;
 		global.p2is_boosted = false;
 		global.p2nochasing = false;
 	}
 	if (global.Score = 17000 && global.mode = "Classic"){
 		room_goto(rmLevel3);
-		audio_stop_all();
+		// Let Player 1 handle audio management
 		global.p2move_speed = 7;
 		global.p2is_boosted = false;
 		global.p2nochasing = false;

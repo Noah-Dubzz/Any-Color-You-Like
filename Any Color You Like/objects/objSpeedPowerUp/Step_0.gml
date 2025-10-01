@@ -1,7 +1,12 @@
-// Calculate the new y position based on sine wave
-y = initial_y + sin(currentshoe_time + float_offset) * float_amplitude;
+// Optimized floating animation with safety check
+var skip_frames = false;
+if (variable_global_exists("is_mobile") && global.is_mobile) {
+    skip_frames = (current_time % 2 != 0); // Skip every other frame on mobile
+}
 
-// Update the time
-currentshoe_time += float_speed;
+if (!skip_frames) {
+    y = initial_y + sin(currentshoe_time + float_offset) * float_amplitude;
+    currentshoe_time += float_speed;
+}
 
 

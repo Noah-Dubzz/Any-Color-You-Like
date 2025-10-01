@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"optimized_room_goto",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"optimized_room_goto",
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

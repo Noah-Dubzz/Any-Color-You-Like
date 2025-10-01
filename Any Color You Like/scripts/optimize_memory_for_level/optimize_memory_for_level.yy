@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"optimize_memory_for_level",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"optimize_memory_for_level",
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

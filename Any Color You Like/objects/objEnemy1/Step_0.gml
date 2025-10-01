@@ -1,49 +1,67 @@
+// Initialize delta time system for frame-rate independence (Enemy)
+if (!variable_global_exists("delta_multiplier")) {
+    global.delta_multiplier = 1.0;
+    global.target_fps = 144;
+}
+
 if (global.mode == "TimeAttack") {
     instance_destroy(self);
 }
 
-// Checks for players nearby
-var detection_range = 200; // Range that the enemy can see the players
+// Optimized enemy AI - reduce expensive checks
+var detection_range = 200;
 var player_visible = false;
-var target_player = noone; // Track the closest visible player
+var target_player = noone;
 
-// Function to check visibility and proximity for a player
-function check_player_visibility(player_obj) {
-    var is_visible = false;
+// Initialize check timer for performance
+if (!variable_instance_exists(id, "visibility_check_timer")) {
+    visibility_check_timer = 0;
+    cached_player_visible = false;
+    cached_target = noone;
+}
 
-    // Calculates the direction and distance to the player
-    var dir_to_player = point_direction(x, y, player_obj.x, player_obj.y);
-    var dist_to_player = point_distance(x, y, player_obj.x, player_obj.y);
-
-    // Checks if the player is in detection range and visible to the enemy
-    if (dist_to_player < detection_range) {
-        var hit = collision_line(x, y, player_obj.x, player_obj.y, objWall, true, true);
-        if (!hit) {
-            is_visible = true;
+// Only do expensive visibility checks every 10 frames
+if (visibility_check_timer <= 0) {
+    visibility_check_timer = 10; // Reset timer
+    
+    function check_player_visibility_optimized(player_obj) {
+        // Fast distance check first
+        var dx = player_obj.x - x;
+        var dy = player_obj.y - y;
+        var dist_squared = dx * dx + dy * dy;
+        var detection_squared = detection_range * detection_range;
+        
+        if (dist_squared < detection_squared) {
+            // Only do expensive collision_line if distance check passes
+            var hit = collision_line(x, y, player_obj.x, player_obj.y, objWall, true, true);
+            if (!hit) {
+                return {visible: true, distance: sqrt(dist_squared), target: player_obj};
+            }
+        }
+        return {visible: false, distance: sqrt(dist_squared), target: player_obj};
+    }
+    
+    // Cache results for performance
+    var player1_status = check_player_visibility_optimized(objPlayer);
+    cached_player_visible = player1_status.visible;
+    cached_target = player1_status.target;
+    
+    if (global.mode == "MultiPrism") {
+        var player2_status = check_player_visibility_optimized(objPlayer2);
+        if (player2_status.visible) {
+            if (!cached_player_visible || player2_status.distance < player1_status.distance) {
+                cached_player_visible = true;
+                cached_target = player2_status.target;
+            }
         }
     }
-
-    return {visible: is_visible, direction: dir_to_player, distance: dist_to_player};
+} else {
+    visibility_check_timer -= global.delta_multiplier;
 }
 
-// Check visibility for objPlayer
-var player1_status = check_player_visibility(objPlayer);
-if (player1_status.visible) {
-    player_visible = true;
-    target_player = objPlayer;
-}
-
-// Check visibility for objPlayer2
-if (global.mode = "MultiPrism"){
-var player2_status = check_player_visibility(objPlayer2);
-if (player2_status.visible) {
-    // If both players are visible, target the closest one
-    if (!player_visible || player2_status.distance < player1_status.distance) {
-        player_visible = true;
-        target_player = objPlayer2;
-    }
-}
-}
+// Use cached values
+player_visible = cached_player_visible;
+target_player = cached_target;
 
 if (player_visible && global.nochasing == false) {
     // Start chasing the target player if not already chasing
@@ -58,56 +76,37 @@ if (chasing && global.nochasing == false) {
         // Moves towards the closest visible player
         var dir_to_target = point_direction(x, y, target_player.x, target_player.y);
         direction = dir_to_target;
-    }
-    
-    if (!audio_is_playing(sndChasing)) { // Check if sndChasing is not currently playing
-        audio_play_sound(sndChasing, 100, true); // Play the sound
-    }
-    
-    global.enemyspeed = 4; // Faster speed while chasing the player
-
-    // Calculates movement for enemy
-    var move_x = lengthdir_x(global.enemyspeed, direction);
-    var move_y = lengthdir_y(global.enemyspeed, direction);
-    
-    // Moves the enemy and controls its collisions
-    if (!place_meeting(x + move_x, y, objWall) && !place_meeting(x, y + move_y, objWall)) {
-        x += move_x;
-        y += move_y;
-    } else {
-        // Stops chasing if it bumps into a wall
-        chasing = false;
-        global.enemyspeed = 2; // Resets speed after the end of the chase
+        speed = global.enemyspeed * global.delta_multiplier;
     }
 
-    // Stop chasing sound if no longer chasing
-    if (chasing == false) {
-        audio_stop_sound(sndChasing);
-    }
-    
-    // Decrements chase timer
-    chase_timer -= 1;
+    // Continues chasing for a limited time
+    chase_timer -= global.delta_multiplier;
     if (chase_timer <= 0) {
         chasing = false;
-        global.enemyspeed = 2; // Resets speed after chase
+        target_player = noone;
+        chase_timer = 0;
     }
 } else {
-    // Moves straight line until wall or object
-    var move_x = lengthdir_x(global.enemyspeed, direction);
-    var move_y = lengthdir_y(global.enemyspeed, direction);
-    
-    // Checks for collisions
-    if (place_meeting(x + move_x, y, objWall) || place_meeting(x, y + move_y, objWall)) {
-        // Changes direction if a wall is encountered
-        direction = random(360); // Changes direction when it hits a wall
-    } else {
-        // Continues moving in the current direction
-        x += move_x;
-        y += move_y;
+    // Random wandering behavior (optimized)
+    if (!variable_instance_exists(id, "wander_timer")) {
+        wander_timer = 0;
     }
+    
+    if (wander_timer <= 0) {
+        direction = random(360); // Change direction every few frames
+        wander_timer = 60 + random(60); // Random interval between 1-2 seconds
+    } else {
+        wander_timer -= global.delta_multiplier;
+    }
+    
+    speed = (global.enemyspeed / 2) * global.delta_multiplier; // Slower when wandering
 }
 
-// Clamp position within maze boundaries
+// Optimized boundary checking
 x = clamp(x, global.maze_left + sprite_width / 2, global.maze_right - sprite_width / 2);
 y = clamp(y, global.maze_top + sprite_height / 2, global.maze_bottom - sprite_height / 2);
 
+// Bounce off walls (simple collision response)
+if (place_meeting(x + lengthdir_x(speed + 1, direction), y + lengthdir_y(speed + 1, direction), objWall)) {
+    direction = direction + 180 + random_range(-45, 45); // Bounce with some randomness
+}

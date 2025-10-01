@@ -2,8 +2,8 @@
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white); // Set color for the text
+draw_set_font(font_bold_large); // Consistent font usage
 if (global.mode == "Classic" || global.mode == "Endless" || global.mode == "MultiPrism"){
-	draw_set_font(font_bold_large);  // Make sure to use a bold large font here
     draw_text(10, 10, "Score: " + string(global.Score));
 }
 if (global.mode == "TimeAttack" && room != rmTimeAttack){
@@ -11,24 +11,31 @@ if (global.mode == "TimeAttack" && room != rmTimeAttack){
     draw_text(10, 10, "Levels Completed: " + string(global.levelscompleted));
 }
 
-// Draw Player 1's lives as sprPlayer sprites in the bottom-right corner
-var lives_x = display_get_gui_width() - 40; // Start from the bottom-right
-var lives_y = display_get_gui_height() - 1065; // Adjust vertical position
-var player_sprite_width = sprite_get_width(sprPlayer); // Width of the player sprite
+// Optimized HUD drawing - cache expensive calculations
+if (!variable_instance_exists(id, "hud_cache_frame") || hud_cache_frame != get_timer()) {
+    hud_cache_frame = get_timer();
+    cached_gui_width = display_get_gui_width();
+    cached_gui_height = display_get_gui_height();
+    cached_player_width = sprite_get_width(sprPlayer);
+    cached_player2_width = sprite_get_width(sprPlayer2);
+}
+
+// Draw Player 1's lives using cached values
+var lives_x = cached_gui_width - 40;
+var lives_y = cached_gui_height - 80;
 
 for (var i = 0; i < global.lives; i++) {
-    draw_sprite(sprPlayer, 0, lives_x - i * (player_sprite_width + 5), lives_y); 
+    draw_sprite(sprPlayer, 0, lives_x - i * (cached_player_width + 5), lives_y); 
 }
 
-if (global.mode = "MultiPrism"){
-// Draw Player 2's lives as sprPlayer2 sprites below Player 1's lives
-var p2lives_x = display_get_gui_width() - 40; // Start from the same horizontal position
-var p2lives_y = lives_y + sprite_get_height(sprPlayer) + 10; // Position directly below Player 1's lives
-var p2player_sprite_width = sprite_get_width(sprPlayer2); // Width of the player sprite
-
-for (var i = 0; i < global.p2lives; i++) {
-    draw_sprite(sprPlayer2, 0, p2lives_x - i * (p2player_sprite_width + 5), p2lives_y); 
-}
+if (global.mode == "MultiPrism"){
+    // Draw Player 2's lives using cached values
+    var p2lives_x = cached_gui_width - 40;
+    var p2lives_y = lives_y + sprite_get_height(sprPlayer) + 10;
+    
+    for (var i = 0; i < global.p2lives; i++) {
+        draw_sprite(sprPlayer2, 0, p2lives_x - i * (cached_player2_width + 5), p2lives_y); 
+    }
 }
 
 // Draw the timer (minutes:seconds) at the top-center of the screen
@@ -41,8 +48,8 @@ var time_display = string(minutes) + ":" + string(seconds);
 // Get the width of the text to center it
 var text_width = string_width(time_display);
 
-// Calculate the X position to center the text
-var x_position = (display_get_width() - text_width) / 2;
+// Use cached GUI width for better performance
+var x_position = (cached_gui_width - text_width) / 2;
 
 // Draw the time at the top center of the screen
 if (global.mode == "TimeAttack"){
@@ -65,7 +72,7 @@ if (room == rmTimeAttack){
     } else if (global.levelscompleted <= 15 && global.levelscompleted > 10) {
         congrats_text = "Stay Focused, That's your best chance!";
     } else if (global.levelscompleted <= 20 && global.levelscompleted > 15) {
-        congrats_text = "You're getting the hang of it!";
+        congrats_text = "You're getting the hang of this!";
     } else if (global.levelscompleted <= 25 && global.levelscompleted > 20) {
         congrats_text = "Nice run! Keep up the good work!";
     } else if (global.levelscompleted <= 30 && global.levelscompleted > 25) {
@@ -83,9 +90,9 @@ if (room == rmTimeAttack){
     } else if (global.levelscompleted <= 80 && global.levelscompleted > 60) {
         congrats_text = "That was freaking amazing!";
     } else if (global.levelscompleted <= 100 && global.levelscompleted > 80) {
-        congrats_text = "OMG WOW! You're good at this!!!";
+        congrats_text = "There's no way you just did that, Here's my Discord! noah_dubzz";
     } else if (global.levelscompleted <= 150 && global.levelscompleted > 100) {
-        congrats_text = "There's no way you just did that, here's my Discord noah_dubzz";
+        congrats_text = "Congratulations! You broke hhh_awesome's record of 115!";
     }
 	    // Display the congratulatory text at the top-center of the screen
     draw_set_halign(fa_center);

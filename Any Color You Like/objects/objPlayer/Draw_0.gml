@@ -1,15 +1,30 @@
-// Draw the trail
-for (var i = 0; i < array_length(trail); i++) {
-    var pos = trail[i];
-    var alpha = 1 - (i / trail_length); // Fade effect
+// Optimized trail rendering with batching and performance limits
+var trail_draw_limit = min(array_length(trail), 15); // Limit trail length for performance
+var trail_skip = max(1, floor(array_length(trail) / trail_draw_limit)); // Skip frames at high trail counts
+
+for (var i = 0; i < trail_draw_limit; i++) {
+    var trail_index = i * trail_skip;
+    if (trail_index >= array_length(trail)) break;
+    
+    var pos = trail[trail_index];
+    var alpha = 1 - (i / trail_draw_limit); // Fade effect
+    
+    // Skip very transparent trail segments for performance
+    if (alpha < 0.1) continue;
+    
+    // Clamp trail drawing position to maze bounds (ensures no out-of-bounds trail rendering)
+    var draw_x = clamp(pos[0], global.maze_left + sprite_width / 2, global.maze_right - sprite_width / 2);
+    var draw_y = clamp(pos[1], global.maze_top + sprite_height / 2, global.maze_bottom - sprite_height / 2);
+    
     draw_set_alpha(alpha);
     
-    // Set rainbow colors based on index
-    var color = make_color_hsv(i * (360 / trail_length), 255, 255);
+    // Optimized color calculation - cache HSV conversion
+    var hue = (i * (360 / trail_draw_limit)) % 360;
+    var color = make_color_hsv(hue, 255, 255);
     draw_set_color(color);
 
-    // Draw the sprTrail sprite at the position with a specific size (adjust the size as needed)
-    draw_sprite(sprTrail, 0, pos[0], pos[1]); // Assuming 0 is the frame you want to use
+    // Draw trail segment at clamped position
+    draw_sprite(sprTrail, 0, draw_x, draw_y);
 }
 
 // Reset alpha and draw the player

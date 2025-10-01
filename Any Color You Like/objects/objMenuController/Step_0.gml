@@ -1,32 +1,63 @@
+// Check for controller connection and initialize if needed
+if (!gamepad_is_connected(0)) {
+    for (var i = 0; i < 12; i++) {
+        if (gamepad_is_connected(i)) {
+            gamepad_set_axis_deadzone(i, 0.2);
+            break;
+        }
+    }
+}
+
 // Initialize the menu items (if not already set)
     global.menu_items = [objClassic, objEndlessMode, objMultiPrism, objTimeAttack];
 
-// Joystick vertical axis input
-var joy_y = gamepad_axis_value(0, gp_axislv);
+// Enhanced input system: Controller + Keyboard + Mouse + Number Keys
+var input_up = gamepad_axis_value(0, gp_axislv) < -0.5 || keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"));
+var input_down = gamepad_axis_value(0, gp_axislv) > 0.5 || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S"));
+var input_select = gamepad_button_check_pressed(0, gp_face1) || keyboard_check_pressed(vk_enter) || keyboard_check_pressed(vk_space);
 
-// Deadzone check to prevent accidental input
-if (abs(joy_y) > 0.5) {
-    if (joy_y > 0) {
-        // Scroll down
-        if (!scrolling) {
-            global.menu_selection = (global.menu_selection + 1) mod array_length(global.menu_items);
-            global.selected_obj = global.menu_items[global.menu_selection];
-            scrolling = true; // Prevent repeated inputs in one direction
-        }
-    } else {
-        // Scroll up
-        if (!scrolling) {
-            global.menu_selection = (global.menu_selection - 1 + array_length(global.menu_items)) mod array_length(global.menu_items);
-            global.selected_obj = global.menu_items[global.menu_selection];
-            scrolling = true; // Prevent repeated inputs in one direction
-        }
-    }
-} else {
-    scrolling = false; // Reset scrolling state when joystick is neutral
+// Quick access number keys (1-4 for menu items)
+if (keyboard_check_pressed(ord("1"))) {
+    global.menu_selection = 0;
+    global.selected_obj = global.menu_items[0];
+    input_select = true; // Auto-select
+}
+if (keyboard_check_pressed(ord("2"))) {
+    global.menu_selection = 1;
+    global.selected_obj = global.menu_items[1];
+    input_select = true; // Auto-select
+}
+if (keyboard_check_pressed(ord("3"))) {
+    global.menu_selection = 2;
+    global.selected_obj = global.menu_items[2];
+    input_select = true; // Auto-select
+}
+if (keyboard_check_pressed(ord("4"))) {
+    global.menu_selection = 3;
+    global.selected_obj = global.menu_items[3];
+    input_select = true; // Auto-select
 }
 
-// Confirm selection with the A button (gp_face1)
-if (gamepad_button_check_pressed(0, gp_face1)) {
+// Handle menu navigation
+if (input_up && !scrolling) {
+    global.menu_selection = (global.menu_selection - 1 + array_length(global.menu_items)) mod array_length(global.menu_items);
+    global.selected_obj = global.menu_items[global.menu_selection];
+    audio_play_sound(sndButton, 1, false); // Add menu navigation sound
+    scrolling = true;
+} else if (input_down && !scrolling) {
+    global.menu_selection = (global.menu_selection + 1) mod array_length(global.menu_items);
+    global.selected_obj = global.menu_items[global.menu_selection];
+    audio_play_sound(sndButton, 1, false); // Add menu navigation sound
+    scrolling = true;
+}
+
+// Reset scrolling when no input
+if (!input_up && !input_down) {
+    scrolling = false;
+}
+
+// Confirm selection with controller, keyboard, or mouse
+if (input_select) {
     // Execute the action tied to the selected menu item
     global.selected_obj = global.menu_items[global.menu_selection];
 

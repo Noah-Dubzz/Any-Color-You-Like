@@ -16,7 +16,7 @@ if (position_meeting(mouse_x, mouse_y, id) || (global.selected_obj = objEndlessM
 if (hovering) {
     // Check if the object has not moved more than 40 pixels left
     if (original_x - x < 40) {
-        x = lerp(x, x + 5, 0.1);  // Shift left by 5 pixels
+        x = lerp(x, x - 5, 0.1);  // Fixed: Shift left consistently
     }
 } else {
     // Return to original position smoothly

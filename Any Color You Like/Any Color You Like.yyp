@@ -1,5 +1,5 @@
 {
-  "$GMProject":"",
+  "$GMProject":"v1",
   "%Name":"Any Color You Like",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
@@ -25,11 +25,12 @@
     {"$GMFolder":"","%Name":"Mazes","folderPath":"folders/Sprites/Maze Junk/Mazes.yy","name":"Mazes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Menus and Title Screen","folderPath":"folders/Sprites/Menus and Title Screen.yy","name":"Menus and Title Screen","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
+  "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.6.2.162",
+    "IDEVersion":"2024.13.1.193",
   },
   "name":"Any Color You Like",
   "resources":[
@@ -37,6 +38,7 @@
     {"id":{"name":"Grand_Total","path":"fonts/Grand_Total/Grand_Total.yy",},},
     {"id":{"name":"Searching","path":"fonts/Searching/Searching.yy",},},
     {"id":{"name":"TODO LIST","path":"notes/TODO LIST/TODO LIST.yy",},},
+    {"id":{"name":"objAssetPreloader","path":"objects/objAssetPreloader/objAssetPreloader.yy",},},
     {"id":{"name":"objBlueSpirit","path":"objects/objBlueSpirit/objBlueSpirit.yy",},},
     {"id":{"name":"objClassic","path":"objects/objClassic/objClassic.yy",},},
     {"id":{"name":"objCutsceneManager","path":"objects/objCutsceneManager/objCutsceneManager.yy",},},
@@ -55,6 +57,7 @@
     {"id":{"name":"objMeasurer","path":"objects/objMeasurer/objMeasurer.yy",},},
     {"id":{"name":"objMenuController","path":"objects/objMenuController/objMenuController.yy",},},
     {"id":{"name":"objMultiPrism","path":"objects/objMultiPrism/objMultiPrism.yy",},},
+    {"id":{"name":"objPerformanceMonitor","path":"objects/objPerformanceMonitor/objPerformanceMonitor.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
     {"id":{"name":"objPlayer2","path":"objects/objPlayer2/objPlayer2.yy",},},
     {"id":{"name":"objPowerUpManager","path":"objects/objPowerUpManager/objPowerUpManager.yy",},},
@@ -83,6 +86,9 @@
     {"id":{"name":"rmMultiPrism","path":"rooms/rmMultiPrism/rmMultiPrism.yy",},},
     {"id":{"name":"rmTimeAttack","path":"rooms/rmTimeAttack/rmTimeAttack.yy",},},
     {"id":{"name":"rmTitleScreen","path":"rooms/rmTitleScreen/rmTitleScreen.yy",},},
+    {"id":{"name":"delta_time_manager","path":"scripts/delta_time_manager/delta_time_manager.yy",},},
+    {"id":{"name":"optimize_memory_for_level","path":"scripts/optimize_memory_for_level/optimize_memory_for_level.yy",},},
+    {"id":{"name":"optimized_room_goto","path":"scripts/optimized_room_goto/optimized_room_goto.yy",},},
     {"id":{"name":"sndBackgroundMusic","path":"sounds/sndBackgroundMusic/sndBackgroundMusic.yy",},},
     {"id":{"name":"sndBadTheme","path":"sounds/sndBadTheme/sndBadTheme.yy",},},
     {"id":{"name":"sndBlueSpirit","path":"sounds/sndBlueSpirit/sndBlueSpirit.yy",},},

@@ -3,3 +3,8 @@ global.enemyspeed = 2;
 global.nochasing = false;
 audio_resume_all();
 audio_stop_sound(sndFreeze);
+
+// Stop controller rumble
+if (gamepad_is_connected(0)) {
+    gamepad_set_vibration(0, 0, 0);
+}
